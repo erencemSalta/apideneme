@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var multer = require('multer');
+
+const port = process.env.PORT || 3000
+
 const upload = multer({
   dest: 'images'
 });
@@ -26,7 +29,7 @@ app.post('/addUser', function(req, res) {
    res.send("test");
 });
 
-var server = app.listen(8088, function () {
+var server = app.listen(port, function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)
